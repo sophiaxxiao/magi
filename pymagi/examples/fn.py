@@ -1,8 +1,12 @@
 import numpy as np
-from arma import ode_system
+import sys
+sys.path.append("/Users/sophiaxiao/Desktop/Honors-thesis/magi")
+sys.path.append("/Users/sophiaxiao/Desktop/Honors-thesis/magi/pymagi")
+import pymagi
 from magi import MagiSolver
 from scipy.integrate import solve_ivp
 from matplotlib import pyplot as plt
+from arma import ode_system
 
 def fOde(theta, x, tvec):
     V = x[:, 0]

@@ -166,8 +166,7 @@ def solve_magi(
     thetaInitExogenous = ArmaVector(np.ndarray(0)) if thetaInitExogenous.size == 0 else ArmaVector(thetaInitExogenous)
     muExogenous = ArmaMatrix(np.ndarray([0, 0])) if muExogenous.size == 0 else ArmaMatrix(muExogenous).t()
     dotmuExogenous=ArmaMatrix(np.ndarray([0, 0])) if dotmuExogenous.size == 0 else ArmaMatrix(dotmuExogenous).t()
-    stepSizeFactorHmc = ArmaVector(np.ndarray(0)) if stepSizeFactorHmc.size == 0 else ArmaVector(stepSizeFactorHmc)
-
+    stepSizeFactorHmc = ArmaVector(np.ndarray(0)) if isinstance(stepSizeFactorHmc, float) or stepSizeFactorHmc.size == 0 else ArmaVector(stepSizeFactorHmc)
     result_solved = solveMagiPy(
         yFull=ArmaMatrix(yFull).t(),
         odeModel=odeModel,
